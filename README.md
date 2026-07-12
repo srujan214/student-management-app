@@ -33,7 +33,7 @@ This project follows a standard layered architecture:
 
 1. Clone the repository
 Bash
-     git clone https://github.com/srujan214/StudentManagementApp.git
+     git clonehttps://github.com/srujan214/student-management-app.git
      cd StudentManagementApp
 3. Create the MySQL database
 Sql
