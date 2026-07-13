@@ -1,10 +1,6 @@
 package com.example.StudentManagementApp.Student;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")
@@ -12,53 +8,29 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int studentId;
+    private Long id;
 
-    private String studentName;
-    private String address;
-    private String phoneNumber;
+    private String name;
+    private String email;
+    private String department;
 
-    // --- 1. Empty Constructor (Required by Spring/JPA) ---
-    public Student() {
+    public Student() {}
+
+    public Student(String name, String email, String department) {
+        this.name = name;
+        this.email = email;
+        this.department = department;
     }
 
-    // --- 2. Constructor with fields ---
-    public Student(String studentName, String address, String phoneNumber) {
-        this.studentName = studentName;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    // --- 3. Getters and Setters (Required so Spring can read/write data) ---
-    public int getStudentId() {
-        return studentId;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
 }
